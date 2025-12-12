@@ -7,6 +7,7 @@ export default function InputText({
   onChange,
   name,
   disabled,
+  style,
   ...rest
 }) {
   return (
@@ -18,6 +19,7 @@ export default function InputText({
        onChange={onChange}
        name={name}
        disabled={disabled}
+       style={style}
        {...rest}
      />
     </Container>

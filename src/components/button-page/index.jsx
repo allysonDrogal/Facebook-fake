@@ -6,6 +6,7 @@ export default function ButtonPage({
   type = "button",
   disabled,
   variant = "primary",
+  style,
   ...props
 }) {
   return (
@@ -14,6 +15,7 @@ export default function ButtonPage({
       onClick={onClick}
       disabled={disabled}
       variant={variant}
+      style={style}
       {...props}
     >
     {children}

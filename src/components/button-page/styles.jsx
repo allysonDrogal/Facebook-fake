@@ -14,7 +14,7 @@ export const Button = styled.button`
   background-color: ${props => {
     if (props.variant === "secondary") return "#e4e6eb";
     if (props.variant === "success") return "#42b72a";
-    return "#1877f2";
+    return "#6c81b7";
   }};
   
   color: ${props => props.variant === "secondary" ? "#000" : "#fff"};
@@ -23,7 +23,7 @@ export const Button = styled.button`
     background-color: ${props => {
       if (props.variant === "secondary") return "#d8dadf";
       if (props.variant === "success") return "#36a420";
-      return "#166fe5";
+      return "#7b8bb3ff";
     }};
   }
   
