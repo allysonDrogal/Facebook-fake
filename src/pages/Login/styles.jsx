@@ -26,7 +26,7 @@ export const ImageText = styled.div`
 
  `;
 
-export const Form = styled.div`
+export const Form = styled.form`
  //background: purple;
  width: 100%;
  height: 100%;

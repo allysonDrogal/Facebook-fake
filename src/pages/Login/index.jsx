@@ -10,11 +10,37 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-
+import { useCallback } from "react";
+import { RegisterUser } from "../../api/Users";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
   const [value, setValue] = React.useState(null);
+  const [ formData, setFormData ] = useState({
+    name: '',
+    username: '',
+    email: '',
+    password: '',
+    birthDate: '',
+    gender: 0,
+  });
+  const navigate = useNavigate();
+
+
+  const handleSubmitUsersRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const dataToSend = {
+        ...formData,
+        birthDate: value ? value.format('YYYY-MM-DD') : '',
+      };
+      await RegisterUser(dataToSend);
+      navigate('/home');
+    } catch (error) {
+      console.error("Error during user registration:", error);
+    }
+  }
 
   return (
     <Container>
@@ -30,7 +56,7 @@ export default function Login() {
           />
         </ImageText>
 
-        <Form>
+        <Form onSubmit={handleSubmitUsersRegister}>
         <div style={{ marginLeft: '8px', marginBottom: '10px'}}>
           <h2>Abra uma conta</h2>
           <br />
@@ -40,27 +66,36 @@ export default function Login() {
             <InputText
               type="text"
               placeholder="Nome"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
 
             />
             <InputText
               type="text"
               placeholder="Sobrenome"
+              value={formData.username}
+              onChange={(e) => setFormData({ ...formData, username: e.target.value })}
 
             />
           </Form_1>
            <InputText
               type="text"
               placeholder="E-mail ou número de celular"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
 
             />
             <InputText
               type="text"
               placeholder="Insira novamente o e-mail ou número de celular"
-
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             />
             <InputText
               type="text"
               placeholder="Nova senha"
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
 
             />
             <div style={{ marginTop: '10px', marginLeft: '10px', display: 'flex'}}>
