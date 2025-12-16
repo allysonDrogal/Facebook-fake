@@ -1,4 +1,6 @@
 import { MenuItem, ProfileHeader } from "./styles";
+import ArrowDropDownSharpIcon from '@mui/icons-material/ArrowDropDownSharp';
+
 
 
 
@@ -21,6 +23,7 @@ export default function HeaderProfile() {
       </MenuItem>
       <MenuItem>
         Mais
+        <ArrowDropDownSharpIcon />
       </MenuItem>
 
     </ProfileHeader>

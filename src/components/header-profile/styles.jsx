@@ -19,7 +19,10 @@ export const MenuItem = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  color: #000000;
+  color: #737a97;
+  font-weight: 600;
+  width: 11%;
+  justify-content: center;
 
   &:hover {
     background: rgba(0, 0, 0, 0.1);

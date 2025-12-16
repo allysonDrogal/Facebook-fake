@@ -50,8 +50,15 @@ width: 18%;
 export const ButtonFollow = styled.button`
  border: black 1px solid;
  height: 25px;
- width: 100%;
- border-radius: 2px;
+ width: 30%;
+ border-radius: 3px 2px 2px 3px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: #2e252c;
+ margin-right: 10px;
+ font-weight: 600;
+ 
 `;
 
 export const ContainerFollowers = styled.div`
@@ -64,6 +71,17 @@ export const ContainerFollowers = styled.div`
  display: flex;
  justify-content: space-between;
 `;
+
+export const ContainerAbout = styled.div`
+ width: 35%;
+ height: 38%;
+ background: #ffff;
+ margin-left: 15px;
+ margin-top: 10px;
+ border-radius: 3px;
+
+ `;
+
 
 export const ImageFollowers = styled.img`
 width: 30px;
