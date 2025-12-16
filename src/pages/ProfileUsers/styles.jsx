@@ -15,9 +15,9 @@ export const ProfileBanner = styled.div`
   display: flex;
   align-items: end; 
   background-image: url(${props => props.bannerUrl});
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  background-repeat: no-repeat;
+  //background-repeat: no-repeat;
   position: relative;
   margin-left: 15px;
 `;

@@ -15,9 +15,11 @@ import b from "../../assets/b.png"
 import gatofuma from "../../assets/gatofuma.png"
 import picapau from "../../assets/picapau.png"
 import gatoblack from "../../assets/gatoblack.png"
+import HeaderMain from "../../components/header-main-page";
 export default function ProfileUsers() {
   return (
     <Container>
+    <HeaderMain/>
       <ProfileBanner bannerUrl={bannerProfile}>
         <ProfileImage src={imgProfile} alt="Profile" />
         <ProfileName>Allyson Silva</ProfileName>
