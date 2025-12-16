@@ -36,7 +36,7 @@ export default function Login() {
         birthDate: value ? value.format('YYYY-MM-DD') : '',
       };
       await RegisterUser(dataToSend);
-      navigate('/home');
+      navigate('/profile');
     } catch (error) {
       console.error("Error during user registration:", error);
     }

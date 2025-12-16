@@ -20,7 +20,7 @@ export default function HeaderBase() {
                 Email ou telefone
              </label>
              <Input  style={{height: '24px'}}/>
-             <input style={{ marginTop: '3px'}} type="checkbox" /> Esqueceu a senha?
+            <a style={{ marginTop: '3px'}} href="/"> Esqueceu a senha?</a>
             </div>
 
             <ButtonPage style={{height: '28px', width: '75px'}}>
