@@ -10,4 +10,14 @@ const RegisterUser = async (userData) => {
   }
 }
 
-export { RegisterUser };
+const acesso = async ({ email, password }) => {
+  try {
+    const result = await api.post("/api/Users/login", { email, password });
+    return result.data;
+  } catch (error) {
+    console.error("Error logging in:", error);
+    throw error;
+  }
+}
+
+export { RegisterUser, acesso };

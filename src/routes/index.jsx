@@ -1,12 +1,38 @@
-import { Route, Routes } from "react-router-dom";
-import Login from "../pages/Login";
-import ProfileUsers from "../pages/ProfileUsers";
+import { jwtDecode } from "jwt-decode";
+import { environment } from "../shared/env";
+import { useAuth } from "../shared/hooks/auth";
+import { Routes } from "react-router-dom";
+import HeaderMain from "../components/header-main-page";
+import { privateRoutes } from "./PrivateRoutes";
+import { openRoutes } from "./OpenRoutes";
 
 export default function AppRoutes() {
-  return (
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/profile" element={<ProfileUsers />} />
-    </Routes>
-  )
-}
+  const { user, token } = useAuth();
+
+  const isAuthenticated = () => {
+     if (token) {
+      try {
+        const decodedToken = jwtDecode(token);
+        return user && decodedToken.exp * 1000 > Date.now();
+      } catch (error) {
+        localStorage.removeItem(environment.APP_NAME);
+        return false;
+      }
+    }
+    return false;
+  };
+
+  if (isAuthenticated()) {
+    return (
+      <>
+        <HeaderMain />
+        <Routes>
+          {privateRoutes}
+        </Routes>
+      </>
+    )
+  }
+  return <Routes>
+    {openRoutes}
+  </Routes>
+} 

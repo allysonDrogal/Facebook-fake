@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
 
-  const [value, setValue] = React.useState(null);
+  const [value, setValue] = useState(null);
   const [ formData, setFormData ] = useState({
     name: '',
     username: '',

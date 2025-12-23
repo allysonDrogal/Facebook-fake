@@ -9,7 +9,7 @@ export const Container = styled.div`
   justify-content: space-between;
 `;
 
-export const FormLogin = styled.div`
+export const FormLogin = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;

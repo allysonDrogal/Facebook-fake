@@ -6,8 +6,12 @@ import GroupSharpIcon from '@mui/icons-material/GroupSharp';
 import ForumSharpIcon from '@mui/icons-material/ForumSharp';
 import PublicSharpIcon from '@mui/icons-material/PublicSharp';
 import HomeSharpIcon from '@mui/icons-material/HomeSharp';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { useAuth } from "../../shared/hooks/auth";
 
 export default function HeaderMain() {
+  const { signOut } = useAuth();
+
   return (
     <ContainerHeaderMain>
     <ImageFacebook src={facebookLogo}/>
@@ -19,6 +23,7 @@ export default function HeaderMain() {
     <GroupSharpIcon style={{ position: 'relative', left: '55%', color: 'white'}} />
     <ForumSharpIcon style={{ position: 'relative', left: '55.5%', color: 'white'}} />
     <PublicSharpIcon style={{ position: 'relative', left: '56%', color: 'white'}} />
+    <ExitToAppIcon style={{ position: 'relative', left: '57%', color: 'white', cursor: 'pointer'}} onClick={signOut}/>
       
     </ContainerHeaderMain>
   )

@@ -1,13 +1,19 @@
-import AppRoutes from "./routes"
+import { HashRouter } from "react-router-dom";
 //import { BrowserRouter } from 'react-router-dom';
 
 import GlobalStyles from "./shared/styles/GlobalStyles"
+import AppRoutes from "./routes";
+import { AuthProvider } from "./shared/hooks/auth";
 
 function App() {
     return (
     <>
-   <GlobalStyles />
-      <AppRoutes />
+    <AuthProvider>
+      <GlobalStyles />
+          <HashRouter>
+          <AppRoutes />
+        </HashRouter>
+    </AuthProvider>
     </>
   )
 }
