@@ -44,7 +44,6 @@ export default function Login() {
 
   return (
     <Container>
-     <HeaderBase />
       <Content>
         <ImageText>
           <h1 style={{ color: '#464e5a', fontSize: '24px', width: '72%'}}>No Facebook você se conecta e compartilha o que quiser com quem é importante em sua vida.</h1>

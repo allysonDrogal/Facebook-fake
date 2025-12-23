@@ -5,6 +5,7 @@ import { Routes } from "react-router-dom";
 import HeaderMain from "../components/header-main-page";
 import { privateRoutes } from "./PrivateRoutes";
 import { openRoutes } from "./OpenRoutes";
+import HeaderBase from "../shared/Layouts/header";
 
 export default function AppRoutes() {
   const { user, token } = useAuth();
@@ -32,7 +33,12 @@ export default function AppRoutes() {
       </>
     )
   }
-  return <Routes>
-    {openRoutes}
-  </Routes>
+  return (
+    <>
+     <HeaderBase />
+     <Routes>
+     {openRoutes}
+     </Routes>
+    </>
+  )
 } 
