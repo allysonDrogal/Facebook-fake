@@ -3,9 +3,52 @@ import InputText from "../../components/input-text";
 import { Container, Content, FormResetPassword, Title } from "./styles";
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import computerImg from "../../assets/a.png";
+import { useSnackbar } from "../../shared/hooks/SnackbarProvider";
+import { useCallback, useState } from "react";
+import { resetPassword } from "../../api/Users";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 
 export default function ResetPassword() {
+  const [formData, setFormData] = useState({
+    password: '',
+    confirmPassword: ''
+  });
+  const { showMessage } = useSnackbar();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  const handleSubmitResetPassword = useCallback(async (e) => {
+    e.preventDefault();
+    
+    // Validação das senhas
+    if (formData.password !== formData.confirmPassword) {
+      showMessage('As senhas não coincidem.', { severity: 'error' });
+      return;
+    }
+
+    // Pegar o token da URL
+    const token = searchParams.get('token');
+    
+    if (!token) {
+      showMessage('Token inválido ou ausente.', { severity: 'error' });
+      return;
+    }
+
+    try {
+      await resetPassword({
+        token: token,
+        newPassword: formData.password,
+      });
+      showMessage('Senha redefinida com sucesso!', { severity: 'success' });
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
+    } catch (error) {
+      showMessage('Erro ao redefinir a senha. Por favor, tente novamente.', { severity: 'error' });
+    }
+   }, [formData.password, formData.confirmPassword, searchParams, showMessage, navigate])
+  
   return (
     <Container>
       <Content>
@@ -13,7 +56,7 @@ export default function ResetPassword() {
           <h3>Redefinir sua senha</h3>
         </Title>
         <div style={{ border: 'solid 1.5px #ccc', margin: '0 20px' }} />
-        <FormResetPassword>
+        <FormResetPassword onSubmit={handleSubmitResetPassword}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <div style={{ display: 'flex', flexDirection: 'column', padding: '20px' }}>
               <h4 style={{ marginBottom: '25px' }}>
@@ -22,12 +65,18 @@ export default function ResetPassword() {
                <label htmlFor="password" style={{ marginLeft: '31px' }}>Nova senha</label>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
                 <LockOpenIcon style={{ fontSize: '20px', color: '#3a5696', marginRight: '3px' }} />
-                <InputText type="password" id="password" name="password" style={{ marginRight: '10px', height: '28px', width: '300px' }} />
+                <InputText type="password" id="password" name="password" style={{ marginRight: '10px', height: '28px', width: '300px' }}
+                  value={formData.password}
+                  onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                 />
               </div>
-               <label htmlFor="password" style={{ marginLeft: '31px' }}>Confirmar nova senha</label>
+               <label htmlFor="confirmPassword" style={{ marginLeft: '31px' }}>Confirmar nova senha</label>
                <div style={{ display: 'flex', alignItems: 'center' }}>
                 <LockOpenIcon style={{ fontSize: '20px', color: '#3a5696', marginRight: '3px' }} />
-                <InputText type="password" id="password" name="password" style={{ marginRight: '10px', height: '28px', width: '300px' }} />
+                <InputText type="password" id="confirmPassword" name="confirmPassword" style={{ marginRight: '10px', height: '28px', width: '300px' }} 
+                  value={formData.confirmPassword}
+                  onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+                />
               </div>
             </div>
 
@@ -55,7 +104,8 @@ export default function ResetPassword() {
               </ButtonPage>
 
               <ButtonPage
-                type="submit"
+                type="button"
+                onClick={() => navigate('/')}
                 style={{ height: '28px', width: '135px', borderRadius: '2px', background: '#e4e6eb', color: '#050505' }}>
                 Não é você?
               </ButtonPage>

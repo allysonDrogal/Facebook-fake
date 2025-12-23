@@ -20,4 +20,24 @@ const acesso = async ({ email, password }) => {
   }
 }
 
-export { RegisterUser, acesso };
+const forgotPassword = async ({ email}) => {
+  try {
+    const result = await api.post("/api/Users/forgot-password", { email });
+    return result.data;
+  } catch (error) {
+    console.error("Error in forgot password:", error);
+    throw error;
+  }
+}
+
+const resetPassword = async ({ token, newPassword }) => {
+  try {
+    const result = await api.post("/api/Users/reset-password", { token, newPassword });
+    return result.data;
+  } catch (error) {
+    console.error("Error in reset password:", error);
+    throw error;
+  }
+}
+
+export { RegisterUser, acesso, forgotPassword, resetPassword };
