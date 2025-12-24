@@ -13,10 +13,12 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useCallback } from "react";
 import { RegisterUser } from "../../api/Users";
 import { useNavigate } from "react-router-dom";
+import { useSnackbar } from "../../shared/hooks/SnackbarProvider";
 
 export default function Login() {
-
+  const {showMessage} = useSnackbar(); 
   const [value, setValue] = useState(null);
+  const [ gender, setGender ] = useState(0);
   const [ formData, setFormData ] = useState({
     name: '',
     username: '',
@@ -25,18 +27,26 @@ export default function Login() {
     birthDate: '',
     gender: 0,
   });
-  const navigate = useNavigate();
-
 
   const handleSubmitUsersRegister = async (e) => {
     e.preventDefault();
     try {
       const dataToSend = {
         ...formData,
-        birthDate: value ? value.format('YYYY-MM-DD') : '',
+        birthDate: value ? value.format('YYYY-MM-DDTHH:mm:ss') : '',
       };
       await RegisterUser(dataToSend);
-      navigate('/profile');
+      showMessage('Usuário registrado com sucesso!', { severity: 'success' });
+
+      setFormData({
+      name: '',
+      username: '',
+      email: '',
+      password: '',
+      birthDate: '',
+      gender: 0,
+    });
+    setValue(null);
     } catch (error) {
       console.error("Error during user registration:", error);
     }
@@ -109,10 +119,28 @@ export default function Login() {
             </div>
             <div style={{ gap: '10px', display: 'flex', marginLeft: '10px', marginTop: '10px'}}>
               <div>
-               <input style={{ marginTop: '3px'}} type="checkbox" /> Feminino
+               <input 
+               type="radio"
+               name="gender"
+               checked={gender === 1}
+               style={{ marginTop: '3px'}}
+               onChange={() => {
+                setGender(1);
+                setFormData({ ...formData, gender: 1});
+               }} 
+                /> Feminino
               </div>
               <div>
-               <input style={{ marginTop: '3px'}} type="checkbox" /> Masculino
+               <input 
+                style={{ marginTop: '3px'}} 
+                type="radio" 
+                name="gender"
+                checked={gender === 2}
+                onChange={() => {
+                  setGender(2);
+                  setFormData({ ...formData, gender: 2 });
+                }}
+                /> Masculino
               </div>
             </div>
 

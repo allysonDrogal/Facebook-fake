@@ -9,6 +9,7 @@ import { useSnackbar } from "../../shared/hooks/SnackbarProvider";
 
 export default function ForgotPassword() {
    const { showMessage } = useSnackbar();
+   const [ loading, setLoading ] = useState(false);
   const [ formData, setFormData ] = useState({
     email: '',
   });
@@ -16,12 +17,15 @@ export default function ForgotPassword() {
 
   const handleSubmitForgotPassword = useCallback(async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await forgotPassword({ email: formData.email });
       showMessage('Instruções para redefinir sua senha foram enviadas para o seu e-mail.', { severity: 'success' });
       navigate('/');
     } catch (error) {
       console.error("Error during forgot password:", error);
+    } finally {
+      setLoading(false);
     }
   }, [formData.email, navigate]);
   return (
@@ -51,8 +55,15 @@ export default function ForgotPassword() {
           <div style={{ gap: '10px', display: 'flex'}}>
            <ButtonPage
               type="submit"
-              style={{ height: '28px', width: '105px', borderRadius: '2px' }}>
-              Pesquisar
+             disabled={loading}
+             style={{ 
+              height: '28px', 
+              width: loading ? '150px' : '105px', 
+              borderRadius: '2px',
+              opacity: loading ? 0.6 : 1,
+              cursor: loading ? 'not-allowed' : 'pointer'
+            }}>
+             {loading ? 'Carregando...' : 'Pesquisar'}
             </ButtonPage>
 
              <ButtonPage
