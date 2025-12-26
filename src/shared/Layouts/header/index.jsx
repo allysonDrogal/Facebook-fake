@@ -17,7 +17,7 @@ export default function HeaderBase() {
     e.preventDefault();
     try {
       await login({ email: formData.email, password: formData.password });
-      navigate('/profile');
+      navigate('/profile-user');
     } catch (error) {
       console.error("Error during login:", error);
     }

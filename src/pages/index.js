@@ -1,4 +1,5 @@
 export * from './Login'
-export * from './ProfileUsers'
+export * from './ProfileFriends'
 export * from './ForgotPassword'
 export * from './ResetPassword'
+export * from './ProfileUser'
