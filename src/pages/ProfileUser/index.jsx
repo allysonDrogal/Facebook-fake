@@ -1,19 +1,12 @@
 import { Container, BannerVideo, ProfileImageUser, ProfileNameUser, ButtonFollowUser, ContainerFollowersUser, ImageFollowersUser, ContainerAboutUser, ProfileBannerUser, FollowOrMessageUser, ContentProfileUser, ContainerSponsoredUser } from "./styles";
-import imgProfile from "../../assets/profile.png"
+
 import HeaderProfile from "../../components/header-profile";
-import bannerProfile from "../../assets/bannerProfile.png"
-import ButtonPage from '../../components/button-page/index';
 import WorkIcon from '@mui/icons-material/Work';
 import LocalConvenienceStoreIcon from '@mui/icons-material/LocalConvenienceStore';
 import SettingsSharpIcon from '@mui/icons-material/SettingsSharp';
 import CottageIcon from '@mui/icons-material/Cottage';
 import LocationPinIcon from '@mui/icons-material/LocationPin';
-import RssFeedIcon from '@mui/icons-material/RssFeed';
 import ArrowDropDownSharpIcon from '@mui/icons-material/ArrowDropDownSharp';
-import a from "../../assets/a.png"
-import b from "../../assets/b.png"
-import gatofuma from "../../assets/gatofuma.png"
-import picapau from "../../assets/picapau.png"
 import gatoblack from "../../assets/gatoblack.png"
 import HeaderMain from "../../components/header-main-page";
 import toji from "../../assets/toji.mp4"

@@ -1,4 +1,4 @@
-import { Container, ProfileBanner, ProfileImage, ProfileName,FollowOrMessage, ButtonFollow, ContainerFollowers, ImageFollowers, ContainerAbout } from "./styles";
+import { Container, ProfileBanner, ProfileImage, ProfileName,FollowOrMessage, ButtonFollow, ContainerFollowers, ImageFollowers, ContainerAbout, ContainerSponsoredFriend } from "./styles";
 import imgProfile from "../../assets/profile.png"
 import HeaderProfile from "../../components/header-profile";
 import bannerProfile from "../../assets/bannerProfile.png"
@@ -16,10 +16,14 @@ import gatofuma from "../../assets/gatofuma.png"
 import picapau from "../../assets/picapau.png"
 import gatoblack from "../../assets/gatoblack.png"
 import HeaderMain from "../../components/header-main-page";
+import PostedDate from "./components/postedDate";
+import MyFeedProfile from "./components/myfeedprofilefriends";
+import MyPhonesProfile from "./components/myphonesprofile";
 export default function ProfileUsers() {
   return (
     <Container>
     <HeaderMain/>
+      <section style={{ width: '100%', minHeight: '100%' }}>
       <ProfileBanner bannerUrl={bannerProfile}>
         <ProfileImage src={imgProfile} alt="Profile" />
         <ProfileName>Julia Roberts</ProfileName>
@@ -33,6 +37,7 @@ export default function ProfileUsers() {
         </FollowOrMessage>    
         <HeaderProfile />
       </ProfileBanner>
+
 
       <ContainerFollowers>
        <div style={{ marginLeft: '20px', marginTop: '15px' }}>
@@ -50,13 +55,13 @@ export default function ProfileUsers() {
              <p>2.015</p> <p>seguidores</p> 
             </div> 
           </div>
-      </div>
-      <ButtonPage variant="success" style={{ width: '6%', height: '30%', borderRadius: '2px', marginTop: '15px', marginRight: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}>
-       <RssFeedIcon style={{fontSize: '15px'}} />  Seguir
-      </ButtonPage>
+        </div>
+        <ButtonPage variant="success" style={{ width: '6%', height: '30%', borderRadius: '2px', marginTop: '15px', marginRight: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '5px' }}>
+        <RssFeedIcon style={{fontSize: '15px'}} />  Seguir
+        </ButtonPage>
 
       </ContainerFollowers>
-       <div style={{ background: '#e8eaec', width: '100%', height: '100%' }}>
+       <div style={{ background: '#e8eaec', width: '40%', minHeight: '100%', display: 'flex', flexDirection: 'column' }}>
         <ContainerAbout>
         <header style={{ background: '#f5f7f9', padding: '10px', borderBottom: '1px solid #ddd' }}>
           <h4 style={{ color: 'gray'}}>Sobre</h4>
@@ -78,8 +83,16 @@ export default function ProfileUsers() {
              <RssFeedIcon style={{fontSize: '20px', color: 'gray' }}  />  Seguidores: <strong style={{color: '#4b657f'}}>2.015</strong>
             </p>
         </div>
+
         </ContainerAbout>
+        <MyPhonesProfile/>
        </div>
+      </section>
+        <ContainerSponsoredFriend>
+
+          <PostedDate/>
+        </ContainerSponsoredFriend>
+        <MyFeedProfile />
     </Container>
   )
 }

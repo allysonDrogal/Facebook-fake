@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-  //display: flex;
+  display: flex;
   justify-content: center;
   background: #e8eaec;
 `;
@@ -73,12 +73,12 @@ export const ContainerFollowers = styled.div`
 `;
 
 export const ContainerAbout = styled.div`
- width: 35%;
- height: 38%;
- background: #ffff;
- margin-left: 15px;
- margin-top: 10px;
- border-radius: 3px;
+   width: 98%;
+    height: 35%;
+    background: #ffff;
+    margin-left: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
 
  `;
 
@@ -87,4 +87,10 @@ export const ImageFollowers = styled.img`
 width: 30px;
 height: 30px;
 border: solid wheat 1px;
+`;
+
+
+export const ContainerSponsoredFriend = styled.div`
+  width: 22%;
+  height: 100%;
 `;
