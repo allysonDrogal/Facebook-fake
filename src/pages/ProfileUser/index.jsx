@@ -22,6 +22,8 @@ import Whattodo from "./components/whattodo";
 import MyPhonesProfile from "./components/myphonesprofile";
 import PostedDate from "./components/postedDate";
 import Sponsored from "./components/sponsored";
+import MyFeedProfile from "./components/myfeedprofile";
+import MyFriendsProfile from "./components/myfriendsprofille";
 export default function ProfileUsers() {
   return (
     <Container>
@@ -42,33 +44,39 @@ export default function ProfileUsers() {
           </FollowOrMessageUser>    
           <HeaderProfile />
         </ProfileBannerUser>
+            <div style={{display: 'flex'}}>
+              <div style={{ background: '#e8eaec', width: '40%', minHeight: '100%', display: 'flex', flexDirection: 'column' }}>
+                
+                  <Traveled/>
+                  <ContainerAboutUser>
+                    <header style={{ background: '#f5f7f9', padding: '10px', borderBottom: '1px solid #ddd' }}>
+                      <h4 style={{ color: 'gray'}}>Sobre</h4>
+                    </header>
+                      <div style={{ padding: '15px', fontSize: '14px', color: '#000000' }}>
+                          <p style={{ marginTop: '10px', paddingBottom: '10px', borderBottom: '1px solid #ddd', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                            <WorkIcon style={{fontSize: '20px', color: 'gray' }}  /> Trabalha em:  <strong style={{color: '#4b657f'}}>Facebook Fake</strong>
+                          </p>
+                          <p style={{ marginTop: '10px', paddingBottom: '10px', borderBottom: '1px solid #ddd', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                            <LocalConvenienceStoreIcon style={{fontSize: '20px', color: 'gray' }}  /> Estudou em:  <strong style={{color: '#4b657f'}}>Faculdade de Tecnologia do Estado de São Paulo - FATEC</strong>
+                          </p>
+                          <p style={{ marginTop: '10px', paddingBottom: '10px', borderBottom: '1px solid #ddd', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                          <CottageIcon style={{fontSize: '20px', color: 'gray' }}  />  Morando em: <strong style={{color: '#4b657f'}}>São Paulo, Brasil</strong>
+                          </p>
+                          <p style={{ marginTop: '10px', paddingBottom: '10px', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                          <LocationPinIcon style={{fontSize: '20px', color: 'gray' }} />  De: <strong style={{color: '#4b657f'}}>São Paulo, Brasil</strong>
+                          </p>
+                      </div>
+                  </ContainerAboutUser>
 
-        <div style={{ background: '#e8eaec', width: '100%', height: '100%' }}>
-          
-            <Traveled/>
-            <Whattodo />
-            <ContainerAboutUser>
-              <header style={{ background: '#f5f7f9', padding: '10px', borderBottom: '1px solid #ddd' }}>
-                <h4 style={{ color: 'gray'}}>Sobre</h4>
-              </header>
-                <div style={{ padding: '15px', fontSize: '14px', color: '#000000' }}>
-                    <p style={{ marginTop: '10px', paddingBottom: '10px', borderBottom: '1px solid #ddd', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                      <WorkIcon style={{fontSize: '20px', color: 'gray' }}  /> Trabalha em:  <strong style={{color: '#4b657f'}}>Facebook Fake</strong>
-                    </p>
-                    <p style={{ marginTop: '10px', paddingBottom: '10px', borderBottom: '1px solid #ddd', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                      <LocalConvenienceStoreIcon style={{fontSize: '20px', color: 'gray' }}  /> Estudou em:  <strong style={{color: '#4b657f'}}>Faculdade de Tecnologia do Estado de São Paulo - FATEC</strong>
-                    </p>
-                    <p style={{ marginTop: '10px', paddingBottom: '10px', borderBottom: '1px solid #ddd', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                    <CottageIcon style={{fontSize: '20px', color: 'gray' }}  />  Morando em: <strong style={{color: '#4b657f'}}>São Paulo, Brasil</strong>
-                    </p>
-                    <p style={{ marginTop: '10px', paddingBottom: '10px', borderBottom: '1px solid #ddd',  display: 'flex', alignItems: 'center', gap: '5px' }}>
-                    <LocationPinIcon style={{fontSize: '20px', color: 'gray' }} />  De: <strong style={{color: '#4b657f'}}>São Paulo, Brasil</strong>
-                    </p>
-                </div>
-            </ContainerAboutUser>
+                  <MyPhonesProfile />
+                  <MyFriendsProfile />
 
-            <MyPhonesProfile />
-        </div>
+              </div>
+             
+                <Whattodo />
+              
+            </div>
+                <MyFeedProfile />
      </ContentProfileUser>
       <ContainerSponsoredUser>
         <PostedDate/>

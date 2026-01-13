@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 export const ContainerMyPhonesProfile = styled.div`
-width: 100%;
+width: 92%;
 height: 100%;
 background: rgba(232, 234, 236);
 `;
 
 
 export const ContentMyPhonesProfile = styled.div`
- width: 35%;
-  height: 53%;
+  width: 100%;
   background: #ffff;
   margin-left: 15px;
   margin-top: 10px;
@@ -23,7 +22,7 @@ export const HeaderContentMyPhonesProfile = styled.div`
   align-items: center;
   background: #f5f7f9;
   width: 100%;
-  height: 15%;
+  height: 46px;
   border-bottom: 1px solid #ddd;
   padding-left: 10px;
   color: #808080;
@@ -35,7 +34,7 @@ export const TagsMorePhonesProfile = styled.div`
   font-weight: 600;
   align-items: center;
   width: 100%;
-  height: 15%;
+  height: 46px;
   border-bottom: 1px solid #ddd;
   padding-left: 10px;
   justify-content: space-between;
@@ -43,21 +42,22 @@ export const TagsMorePhonesProfile = styled.div`
 `;
 
 export const PhonesListProfile = styled.div`
-  width: 100%;
-  height: 100%;
-  display: contents;
+  width: auto;
+  height: 82%;
   padding: 10px;
-  overflow-y: auto;
-  align-items: center;
+  gap: 5px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+
 
   img {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 4px;
     cursor: pointer;
     transition: transform 0.2s;
-    margin-left: 15px;
+    margin-right: 5px;
 
     &:hover {
       transform: scale(1.05);

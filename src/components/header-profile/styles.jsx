@@ -21,7 +21,7 @@ export const MenuItem = styled.div`
   align-items: center;
   color: #737a97;
   font-weight: 600;
-  width: 11%;
+  width: 13%;
   justify-content: center;
 
   &:hover {

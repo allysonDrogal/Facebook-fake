@@ -22,7 +22,7 @@ export default function ProfileUsers() {
     <HeaderMain/>
       <ProfileBanner bannerUrl={bannerProfile}>
         <ProfileImage src={imgProfile} alt="Profile" />
-        <ProfileName>Allyson Silva</ProfileName>
+        <ProfileName>Julia Roberts</ProfileName>
         <FollowOrMessage>
          <ButtonFollow>
             <RssFeedIcon style={{fontSize: '15px'}}/>

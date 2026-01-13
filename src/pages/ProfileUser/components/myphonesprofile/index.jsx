@@ -27,6 +27,9 @@ export default function MyPhonesProfile() {
           <img src={gatofuma} />
           <img src={phone2} />
           <img src={phone3} />
+          <img src={phone1} />
+          <img src={phone2} />
+          <img src={phone3} />
           
         </PhonesListProfile>
      </ContentMyPhonesProfile>

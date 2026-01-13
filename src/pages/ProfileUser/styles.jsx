@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const ContentProfileUser = styled.div`
   width: 80%;
-  height: 100%;
+  min-height: 100%;
   //display: flex;
   justify-content: center;
   background: #e8eaec;
@@ -92,13 +92,13 @@ export const ContainerFollowersUser = styled.div`
 `;
 
 export const ContainerAboutUser = styled.div`
- width: 35%;
+ width: 92%;
  height: 38%;
  background: #ffff;
  margin-left: 15px;
  margin-top: 10px;
  border-radius: 3px;
-
+ margin-bottom: 15px;
  `;
 
 

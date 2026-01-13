@@ -9,6 +9,7 @@ export default createGlobalStyle`
   }
 
   html, body, #root {
+  background: #e8eaec;
   height: 100vh;
   font-family: 'ubuntu';
 }
